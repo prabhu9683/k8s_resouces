@@ -1,5 +1,3 @@
-admin/resource/quota-mem-cpu-pod.yaml 
-
 apiVersion: v1
 kind: Pod
 metadata:
