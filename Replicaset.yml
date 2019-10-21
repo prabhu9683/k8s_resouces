@@ -1,0 +1,9 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+name: my-first-replicaset
+labels:
+version: 0.0.1
+spec:
+replicas: 3
+selector:
