@@ -143,7 +143,7 @@ spec:
 # as the Calico CNI plugins and network config on
 # each master and worker node in a Kubernetes cluster.
 kind: DaemonSet
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: calico-node
   namespace: kube-system
@@ -308,7 +308,7 @@ spec:
 
 # This manifest deploys the Calico Kubernetes controllers.
 # See https://github.com/projectcalico/kube-controllers
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: calico-kube-controllers
@@ -361,9 +361,7 @@ spec:
             # Choose which controllers to run.
             - name: ENABLED_CONTROLLERS
               value: policy,profile,workloadendpoint,node
-
 ---
-
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
@@ -376,9 +374,7 @@ subjects:
 - kind: ServiceAccount
   name: calico-cni-plugin
   namespace: kube-system
-
 ---
-
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -390,17 +386,13 @@ rules:
       - nodes
     verbs:
       - get
-
 ---
-
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: calico-cni-plugin
   namespace: kube-system
-
 ---
-
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
@@ -413,9 +405,7 @@ subjects:
 - kind: ServiceAccount
   name: calico-kube-controllers
   namespace: kube-system
-
 ---
-
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -432,9 +422,7 @@ rules:
     verbs:
       - watch
       - list
-
 ---
-
 apiVersion: v1
 kind: ServiceAccount
 metadata:
