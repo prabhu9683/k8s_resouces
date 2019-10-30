@@ -317,6 +317,9 @@ metadata:
     k8s-app: calico-kube-controllers
 spec:
   # The controllers can only have a single active instance.
+  selector:
+    matchLabels:
+      k8s-app: calico-etcd-node
   replicas: 1
   strategy:
     type: Recreate
