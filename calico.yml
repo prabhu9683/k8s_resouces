@@ -54,6 +54,8 @@ metadata:
   labels:
     k8s-app: calico-etcd
 spec:
+  selector:
+    matchLabels:
   template:
     metadata:
       labels:
@@ -257,6 +259,9 @@ metadata:
     k8s-app: calico-policy
 spec:
   # The policy controller can only have a single active instance.
+  selector:
+    matchLabels:
+      app: calico-policy
   replicas: 1
   strategy:
     type: Recreate
