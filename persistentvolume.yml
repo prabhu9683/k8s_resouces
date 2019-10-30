@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostpath:
-    path: /home/prabhu/k8/volume/
+    path: /home/prabhu/k8/volume
  ---
  apiVersion:  v1
  kind: PersistentVolume
@@ -23,4 +23,4 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  hostpath: /home/prabhu/k8/volume/ 
+  hostpath: /home/prabhu/k8/volume
