@@ -54,6 +54,9 @@ metadata:
   labels:
     k8s-app: calico-etcd
 spec:
+  selector:
+    matchLabels:
+      name: calico-etcd
   template:
     metadata:
       labels:
@@ -135,8 +138,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      k8s-app: calico-node
-  template:
+      name: calico-node
+    template:
     metadata:
       labels:
         k8s-app: calico-node
@@ -293,6 +296,9 @@ metadata:
 spec:
   # The controllers can only have a single active instance.
   replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: calico-kube-controllers
   strategy:
     type: Recreate
   template:
@@ -360,6 +366,9 @@ metadata:
 spec:
   # Turn this deployment off in favor of the kube-controllers deployment above.
   replicas: 0
+  selector:
+    matchLabels:
+      k8s-app: calico-kube-controllers
   strategy:
     type: Recreate
   template:
