@@ -12,7 +12,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /k8/volume/pv-1
----
+---    
 apiVersion: v1
 kind: PersistentVolume
 metadata:
